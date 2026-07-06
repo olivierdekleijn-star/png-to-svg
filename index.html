@@ -1,77 +1,166 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
+
 <head>
-    <title>PNG to SVG Converter</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding-top: 80px;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .box {
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 15px;
-            display: inline-block;
-        }
+    <title>VectorAI - PNG naar SVG Converter</title>
 
-        input {
-            margin-top: 20px;
-            padding: 10px;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #22c55e;
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-
-        button:hover {
-            background: #16a34a;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="box">
-    <h1>PNG → SVG Converter</h1>
-    <p>Upload een PNG en download een SVG</p>
+<header>
+    <div class="logo">
+        VectorAI
+    </div>
 
-    <input type="file" id="file">
-    <br>
-    <button onclick="upload()">Convert</button>
+    <nav>
+        <a href="#">Hoe werkt het?</a>
+        <a href="#">Functies</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <h1>
+        Zet afbeeldingen om naar professionele SVG bestanden
+    </h1>
+
+    <p>
+        Maak van PNG afbeeldingen scherpe vectorbestanden
+        voor logo's, drukwerk en design.
+    </p>
+
+
+    <div class="upload-box">
+
+        <div class="upload-icon">
+            ↑
+        </div>
+
+        <h2>
+            Sleep je afbeelding hierheen
+        </h2>
+
+        <p>
+            of kies een bestand
+        </p>
+
+
+        <input 
+        type="file" 
+        id="file"
+        accept="image/png">
+
+
+        <button onclick="upload()">
+            Converteren
+        </button>
+
+    </div>
+
+
+</section>
+
+
+
+<section class="features">
+
+<h2>
+Waarom VectorAI?
+</h2>
+
+
+<div class="cards">
+
+<div class="card">
+<h3>
+⚡ Snel
+</h3>
+
+<p>
+Binnen enkele seconden een SVG bestand.
+</p>
 </div>
 
-<script>
-async function upload() {
-    const file = document.getElementById("file").files[0];
 
-    const formData = new FormData();
-    formData.append("image", file);
+<div class="card">
+<h3>
+🎨 Hoge kwaliteit
+</h3>
 
-    const res = await fetch("http://localhost:3000/convert", {
-        method: "POST",
-        body: formData
-    });
+<p>
+Scherpe vectoren geschikt voor professioneel gebruik.
+</p>
+</div>
 
-    const svg = await res.text();
 
-    const blob = new Blob([svg], { type: "image/svg+xml" });
-    const url = URL.createObjectURL(blob);
+<div class="card">
+<h3>
+🌍 Online
+</h3>
 
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "converted.svg";
-    a.click();
-}
-</script>
+<p>
+Geen programma installeren.
+</p>
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section class="steps">
+
+<h2>
+Hoe werkt het?
+</h2>
+
+
+<div>
+
+<h3>
+1. Upload
+</h3>
+
+<p>
+Kies een PNG afbeelding.
+</p>
+
+
+<h3>
+2. Converteren
+</h3>
+
+<p>
+Onze software maakt een vectorbestand.
+</p>
+
+
+<h3>
+3. Download
+</h3>
+
+<p>
+Gebruik je SVG overal.
+</p>
+
+
+</div>
+
+</section>
+
+
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
